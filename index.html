@@ -174,66 +174,13 @@
 <li><p>屏幕分辨率：屏幕分辨率是指纵横向上的物理像素点数，单位是px。<br>以iPhon6s为例，屏幕分辨率为1334 x 750，意思是屏幕由1334 x 750个物理像素组成。</p>
 </li>
 <li><p>viewport：浏览器<strong>显示网页的区域</strong>，区别于<strong>浏览器可视区域</strong>。<br>它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。</p>
-</li>
-<li><p>css 中的 1px 像素被称为<strong>与设备无关的独立像素</strong>（device independent pixels，设备独立像素）dip或dp：<br>早期如iPhone3，分辨率为320x480，一个css像素确实是等于一个屏幕物理像素。iphone4的Retina屏，分辨率变成640x960，但是屏幕尺寸没有变化，意味着同样大小的屏幕上，像素却多了一倍，这时，一个css像素是等于两个物理像素。<br><strong>独立像素比 window.devicePixelRatio：</strong><br>独立像素 = 物理像素 / window.devicePixelRatio</p>
-</li>
-</ol>
-<h3 id="三个viewport-都以独立像素为单位"><a href="#三个viewport-都以独立像素为单位" class="headerlink" title="三个viewport 都以独立像素为单位"></a>三个viewport 都以独立像素为单位</h3><ol>
-<li><p>layout viewport 布局视口：<br>上文说过，为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px，这个浏览器默认的viewport叫做 layout viewport，可以通过 document.documentElement.clientWidth 来获取。</p>
-</li>
-<li><p>visual viewport 可视视口：<br>layout viewport 的宽度是大于浏览器可视区域的宽度的，所以我们还需要一个viewport来代表 <strong>浏览器可视区域大小</strong>，这个viewport叫做 visual viewport。可以通过window.innerWidth 来获取</p>
-</li>
-<li><p>ideal viewport 理想视口：<br>越来越多的网站都会为移动设备进行单独的设计，需要一个能完美适配移动端的 viewport，无论是在何种密度屏幕，何种分辨率下，显示出来的大小都是差不多的。<br>这个viewport叫做 ideal viewport。不同的设备拥有有不同的ideal viewport，iphone的ideal viewport宽度都是320px，无论它的屏幕分辨率是320还是640，只要在css中把某一元素的宽度设为ideal viewport的宽度(单位用px)，那么这个元素的宽度就是设备屏幕的宽度了，也就是宽度为100%的效果。</p>
-</li>
-</ol>
-<h3 id="利用meta标签对viewport进行控制"><a href="#利用meta标签对viewport进行控制" class="headerlink" title="利用meta标签对viewport进行控制"></a>利用meta标签对viewport进行控制</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/*移动端经常加上这句话*/</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">/*注意 以下语句也能实现和前一句代码一样的效果*/</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"initial-scale=1, maximum-scale=1.0, user-scalable=0"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>meta viewport 标签首先是由苹果公司在其safari浏览器中引入的，目的就是解决移动设备的viewport问题。</p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>解释</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>width</td>
-<td>设置layout viewport  的宽度，为一个正整数，或字符串”width-device”</td>
-</tr>
-<tr>
-<td>initial-scale</td>
-<td>设置页面的初始缩放值，为一个数字，可以带小数</td>
-</tr>
-<tr>
-<td>minimum-scale</td>
-<td>允许用户的最小缩放值，为一个数字，可以带小数</td>
-</tr>
-<tr>
-<td>maximum-scale</td>
-<td>允许用户的最大缩放值，为一个数字，可以带小数</td>
-</tr>
-<tr>
-<td>height</td>
-<td>设置layout viewport  的高度，这个属性对我们并不重要，很少使用</td>
-</tr>
-<tr>
-<td>user-scalable</td>
-<td>是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes代表允许</td>
-</tr>
-</tbody>
-</table>
-<p>移动设备默认的viewport是layout viewport，<br><strong>width=device-width</strong> 的作用：让当前viewport的宽度等于设备的ideal viewport宽度</p>
-<font color="red"><strong>为什么第二句也能实现让当前viewport的宽度等于设备的ideal viewport宽度的效果？</strong></font>
-
-<p>答：initial-scale=1 代表缩放值是1，也就是没缩放，但却达到了 ideal viewport 的效果，也就是说<strong>缩放是相对于 ideal viewport来进行缩放的</strong>，当对ideal viewport进行100%的缩放，也就是缩放值为1的时候，就得到了 ideal viewport</p>
-<p><font color="red"><strong>当前缩放值 = ideal viewport宽度  / visual viewport宽度</strong></font><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/*设置layout viewport 为设备理想视口宽度，设备可视宽度的二倍为理想视口宽度*/</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=2"</span>&gt;</span></span><br><span class="line">/*上句的意思其实是网页整体宽度是可视宽度的二倍*/</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/*当width 和 init-scale 冲突时*/</span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=400, initial-scale=1"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>当遇到以上情况时，浏览器会取它们两个中较大的那个值。例如，当width=400，ideal viewport的宽度为375时，取的是400；当width=400， ideal viewport的宽度为750时，取的是ideal viewport的宽度。</p>
-
+        
+          <a class="article-more-a" href="/MyBlog/2020/05/16/meta-viewport/#more">more >></a>
+        
       
 
       
-    </div>
+    </li></ol></div>
     <div class="article-info article-info-index">
       
       
@@ -1140,31 +1087,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">events</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DOM事件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1185,6 +1112,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1292,6 +1239,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">rem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">__proto__</a>
               </li>
              
@@ -1321,14 +1276,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JSONP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rem</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
               </li>
              
               <li class="article-tag-list-item">

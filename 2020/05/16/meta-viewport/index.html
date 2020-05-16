@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="范培超的网络日志">
 <meta property="og:description" content="viewport前置知识 屏幕分辨率：屏幕分辨率是指纵横向上的物理像素点数，单位是px。以iPhon6s为例，屏幕分辨率为1334 x 750，意思是屏幕由1334 x 750个物理像素组成。  viewport：浏览器显示网页的区域，区别于浏览器可视区域。它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-16T07:47:00.424Z">
+<meta property="og:updated_time" content="2020-05-16T07:49:21.593Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="meta viewport">
 <meta name="twitter:description" content="viewport前置知识 屏幕分辨率：屏幕分辨率是指纵横向上的物理像素点数，单位是px。以iPhon6s为例，屏幕分辨率为1334 x 750，意思是屏幕由1334 x 750个物理像素组成。  viewport：浏览器显示网页的区域，区别于浏览器可视区域。它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移">
@@ -173,9 +173,8 @@
 <li><p>屏幕分辨率：屏幕分辨率是指纵横向上的物理像素点数，单位是px。<br>以iPhon6s为例，屏幕分辨率为1334 x 750，意思是屏幕由1334 x 750个物理像素组成。</p>
 </li>
 <li><p>viewport：浏览器<strong>显示网页的区域</strong>，区别于<strong>浏览器可视区域</strong>。<br>它可能比浏览器的可视区域要大，也可能比浏览器的可视区域要小。一般来讲，移动设备上的viewport都是要大于浏览器可视区域的，这是因为考虑到移动设备的分辨率相对于桌面电脑来说都比较小，所以为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px（也可能是其它值，这个是由设备自己决定的），但带来的后果就是浏览器会出现横向滚动条，因为浏览器可视区域的宽度是比这个默认的viewport的宽度要小的。</p>
-</li>
-<li><p>css 中的 1px 像素被称为<strong>与设备无关的独立像素</strong>（device independent pixels，设备独立像素）dip或dp：<br>早期如iPhone3，分辨率为320x480，一个css像素确实是等于一个屏幕物理像素。iphone4的Retina屏，分辨率变成640x960，但是屏幕尺寸没有变化，意味着同样大小的屏幕上，像素却多了一倍，这时，一个css像素是等于两个物理像素。<br><strong>独立像素比 window.devicePixelRatio：</strong><br>独立像素 = 物理像素 / window.devicePixelRatio</p>
-</li>
+<a id="more"></a></li>
+<li>css 中的 1px 像素被称为<strong>与设备无关的独立像素</strong>（device independent pixels，设备独立像素）dip或dp：<br>早期如iPhone3，分辨率为320x480，一个css像素确实是等于一个屏幕物理像素。iphone4的Retina屏，分辨率变成640x960，但是屏幕尺寸没有变化，意味着同样大小的屏幕上，像素却多了一倍，这时，一个css像素是等于两个物理像素。<br><strong>独立像素比 window.devicePixelRatio：</strong><br>独立像素 = 物理像素 / window.devicePixelRatio</li>
 </ol>
 <h3 id="三个viewport-都以独立像素为单位"><a href="#三个viewport-都以独立像素为单位" class="headerlink" title="三个viewport 都以独立像素为单位"></a>三个viewport 都以独立像素为单位</h3><ol>
 <li><p>layout viewport 布局视口：<br>上文说过，为了能在移动设备上正常显示那些传统的为桌面浏览器设计的网站，移动设备上的浏览器都会把自己默认的viewport设为980px或1024px，这个浏览器默认的viewport叫做 layout viewport，可以通过 document.documentElement.clientWidth 来获取。</p>
@@ -459,31 +458,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">http</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">session</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">events</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">DOM事件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,6 +483,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">this</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MVC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">http</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">cookie</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">session</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">node.js</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -611,6 +610,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">rem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">__proto__</a>
               </li>
              
@@ -640,14 +647,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">JSONP</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rem</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
               </li>
              
               <li class="article-tag-list-item">
