@@ -150,6 +150,106 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-浏览器模型" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/MyBlog/2020/05/18/浏览器模型/">浏览器模型</a>
+    </h1>
+  
+
+        
+        <a href="/MyBlog/2020/05/18/浏览器模型/" class="archive-article-date">
+  	<time datetime="2020-05-18T02:27:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h3><p>指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。</p>
+<h3 id="以下所有对象都为window的子属性"><a href="#以下所有对象都为window的子属性" class="headerlink" title="以下所有对象都为window的子属性"></a>以下所有对象都为window的子属性</h3><h4 id="navigator-对象"><a href="#navigator-对象" class="headerlink" title="navigator 对象"></a>navigator 对象</h4><p>包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息</p>
+<h4 id="screen-对象"><a href="#screen-对象" class="headerlink" title="screen 对象"></a>screen 对象</h4><p>表示当前窗口所在的屏幕，提供显示设备的信息。</p>
+<h4 id="cookie-对象"><a href="#cookie-对象" class="headerlink" title="cookie 对象"></a>cookie 对象</h4><p>cookie是服务器保存在浏览器的一小段文本信息，浏览器每次向服务器发送请求，就会自动带上cookie信息。<br>一般来讲，单个域名的cookie不应该超过30个，每个cookie大小不超过4kb。</p>
+<ol>
+<li><p>cookie 结构<br><strong>name value domain path expires/max-age size httpOnly secure sameSite priority</strong>  </p>
+<ul>
+<li><p>domain path：<br>如果一个cookie的domain为 <code>www.fpc.com</code>，path为/love，则这个cookie只有在访问<br><code>www.fpc.com/love</code>时才会有效返回给服务器。</p>
+</li>
+<li><p>expires max-age：<br>expires指定一个到期时间，不是很靠谱，因为浏览器本地时间不可控。<br>max-age指定从现在开始 Cookie 存在的秒数,过了这个时间以后，浏览器就不再保留这个 Cookie，相对靠谱。<br>max-age优先级更高<br>如果二者都没有指定，则这个 Cookie 就是 Session Cookie，即它只在本次对话存在</p>
+<ul>
+<li>httpOnly secure：<br>HttpOnly属性指定该 Cookie 无法通过 JavaScript 脚本拿到，只有浏览器发出 HTTP 请求时，才会带上该 Cookie<br>secure属性只是一个开关，不需要指定值，表示只有在加密协议 HTTPS 下，才能将这个 Cookie 发送到服务器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>http生成cookie<br>服务器在http响应头里放置 set-cookie 字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.0 200 OK</span><br><span class="line">Content-type: text/html</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;; Secure; HttpOnly</span><br><span class="line">Set-Cookie: Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly</span><br><span class="line">Set-Cookie: yummy_cookie=choco</span><br></pre></td></tr></table></figure>
+<p>想要更改一个此前存在的cookie值，必须满足key、domain、path和secure都匹配。只要有一个属性不同，就会<br>生成一个全新的 Cookie，浏览器将向服务器发送两个同名的 Cookie，匹配越精确的 Cookie 排在越前面。</p>
+</li>
+<li><p>cookie的发送<br>浏览器向服务器发送请求时，每个请求都会带上相应的cookie：<br><strong>Cookie: name=value; name2=value2; name3=value3</strong><br>服务器收到的cookie有两点是不知道得：</p>
+<ol>
+<li>cookie的各种属性</li>
+<li>哪个域名设置的cookie，是一级域名还是二级域名</li>
+</ol>
+</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">window</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/MyBlog/2020/05/18/浏览器模型/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-meta-viewport" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -920,91 +1020,6 @@
 
 
   
-    <article id="post-层叠上下文" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/MyBlog/2019/03/26/层叠上下文/">层叠上下文</a>
-    </h1>
-  
-
-        
-        <a href="/MyBlog/2019/03/26/层叠上下文/" class="archive-article-date">
-  	<time datetime="2019-03-26T03:45:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1-层叠上下文相关概念和规则"><a href="#1-层叠上下文相关概念和规则" class="headerlink" title="1.层叠上下文相关概念和规则"></a>1.层叠上下文相关概念和规则</h3><ol>
-<li><p>层叠上下文（The stacking context）：<br>是HTML中的一个三维的概念。如果一个元素含有层叠上下文，我们可以理解为这个元素在z轴上就“高人一等”。</p>
-        
-          <a class="article-more-a" href="/MyBlog/2019/03/26/层叠上下文/#more">more >></a>
-        
-      
-
-      
-    </li></ol></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">层叠上下文</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">stacking context</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/MyBlog/2019/03/26/层叠上下文/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/MyBlog/page/2/">2</a><a class="page-number" href="/MyBlog/page/3/">3</a><a class="extend next" rel="next" href="/MyBlog/page/2/">Next &raquo;</a>
@@ -1130,6 +1145,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">layout</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
               </li>
              
@@ -1139,6 +1162,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">命令行</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">类型转换</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">js数据类型</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1155,6 +1186,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">Promise</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">sessionStorage</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1178,58 +1217,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">layout</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">实现原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">类型转换</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">js数据类型</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">localStorage</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">sessionStorage</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">meta</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">viewport</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">块格式化上下文</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BFC</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTTP</a>
               </li>
              
@@ -1243,6 +1230,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">DNS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jQuery</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">实现原理</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1270,11 +1265,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rem</a>
+                <a href="javascript:void(0)" class="js-tag color5">meta</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
+                <a href="javascript:void(0)" class="js-tag color4">viewport</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">webpack</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">小作品</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">商务通</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,11 +1309,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">小作品</a>
+                <a href="javascript:void(0)" class="js-tag color2">window</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">商务通</a>
+                <a href="javascript:void(0)" class="js-tag color3">块格式化上下文</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">BFC</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1319,6 +1330,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">stacking context</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">rem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">响应式</a>
               </li>
              
               <li class="article-tag-list-item">

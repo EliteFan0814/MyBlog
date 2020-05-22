@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="https://elitefan0814.github.io/MyBlog">
-  <title>Archives: 2019/2 | 范培超的网络日志</title>
+  <title>浏览器模型 | 范培超的网络日志</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="我的前端脚步。">
-<meta name="keywords" content="HTML CSS JavaScript jQuery Vue">
-<meta property="og:type" content="website">
-<meta property="og:title" content="范培超的网络日志">
-<meta property="og:url" content="https://elitefan0814.github.io/MyBlog/archives/2019/02/index.html">
+  <meta name="description" content="window 对象指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。 以下所有对象都为window的子属性navigator 对象包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息 screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。 cook">
+<meta name="keywords" content="window">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浏览器模型">
+<meta property="og:url" content="https://elitefan0814.github.io/MyBlog/2020/05/18/浏览器模型/index.html">
 <meta property="og:site_name" content="范培超的网络日志">
-<meta property="og:description" content="我的前端脚步。">
+<meta property="og:description" content="window 对象指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。 以下所有对象都为window的子属性navigator 对象包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息 screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。 cook">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-05-22T10:00:35.336Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="范培超的网络日志">
-<meta name="twitter:description" content="我的前端脚步。">
+<meta name="twitter:title" content="浏览器模型">
+<meta name="twitter:description" content="window 对象指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。 以下所有对象都为window的子属性navigator 对象包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息 screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。 cook">
   
     <link rel="alternative" href="/atom.xml" title="范培超的网络日志" type="application/atom+xml">
   
@@ -148,152 +149,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-浏览器模型" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      浏览器模型
+    </h1>
+  
+
+        
+        <a href="/MyBlog/2020/05/18/浏览器模型/" class="archive-article-date">
+  	<time datetime="2020-05-18T02:27:05.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-18</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h3><p>指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。</p>
+<h3 id="以下所有对象都为window的子属性"><a href="#以下所有对象都为window的子属性" class="headerlink" title="以下所有对象都为window的子属性"></a>以下所有对象都为window的子属性</h3><h4 id="navigator-对象"><a href="#navigator-对象" class="headerlink" title="navigator 对象"></a>navigator 对象</h4><p>包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息</p>
+<h4 id="screen-对象"><a href="#screen-对象" class="headerlink" title="screen 对象"></a>screen 对象</h4><p>表示当前窗口所在的屏幕，提供显示设备的信息。</p>
+<h4 id="cookie-对象"><a href="#cookie-对象" class="headerlink" title="cookie 对象"></a>cookie 对象</h4><p>cookie是服务器保存在浏览器的一小段文本信息，浏览器每次向服务器发送请求，就会自动带上cookie信息。<br>一般来讲，单个域名的cookie不应该超过30个，每个cookie大小不超过4kb。</p>
+<ol>
+<li><p>cookie 结构<br><strong>name value domain path expires/max-age size httpOnly secure sameSite priority</strong>  </p>
+<ul>
+<li><p>domain path：<br>如果一个cookie的domain为 <code>www.fpc.com</code>，path为/love，则这个cookie只有在访问<br><code>www.fpc.com/love</code>时才会有效返回给服务器。</p>
+</li>
+<li><p>expires max-age：<br>expires指定一个到期时间，不是很靠谱，因为浏览器本地时间不可控。<br>max-age指定从现在开始 Cookie 存在的秒数,过了这个时间以后，浏览器就不再保留这个 Cookie，相对靠谱。<br>max-age优先级更高<br>如果二者都没有指定，则这个 Cookie 就是 Session Cookie，即它只在本次对话存在</p>
+<ul>
+<li>httpOnly secure：<br>HttpOnly属性指定该 Cookie 无法通过 JavaScript 脚本拿到，只有浏览器发出 HTTP 请求时，才会带上该 Cookie<br>secure属性只是一个开关，不需要指定值，表示只有在加密协议 HTTPS 下，才能将这个 Cookie 发送到服务器</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>http生成cookie<br>服务器在http响应头里放置 set-cookie 字段：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.0 200 OK</span><br><span class="line">Content-type: text/html</span><br><span class="line">Set-Cookie: &lt;cookie-name&gt;=&lt;cookie-value&gt;; Domain=&lt;domain-value&gt;; Secure; HttpOnly</span><br><span class="line">Set-Cookie: Set-Cookie: id=a3fWa; Expires=Wed, 21 Oct 2015 07:28:00 GMT; Secure; HttpOnly</span><br><span class="line">Set-Cookie: yummy_cookie=choco</span><br></pre></td></tr></table></figure>
+<p>想要更改一个此前存在的cookie值，必须满足key、domain、path和secure都匹配。只要有一个属性不同，就会<br>生成一个全新的 Cookie，浏览器将向服务器发送两个同名的 Cookie，匹配越精确的 Cookie 排在越前面。</p>
+</li>
+<li><p>cookie的发送<br>浏览器向服务器发送请求时，每个请求都会带上相应的cookie：<br><strong>Cookie: name=value; name2=value2; name3=value3</strong><br>服务器收到的cookie有两点是不知道得：</p>
+<ol>
+<li>cookie的各种属性</li>
+<li>哪个域名设置的cookie，是一级域名还是二级域名</li>
+</ol>
+</li>
+</ol>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢您赏赐！<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/MyBlog/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/MyBlog/img/wechat.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/MyBlog/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/MyBlog/2019/02/21/基于jQuery的简单自适应商务通/" class="archive-article-date">
-  	<time datetime="2019-02-21T14:06:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/MyBlog/2019/02/21/基于jQuery的简单自适应商务通/">基于jQuery的简单自适应商务通</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jQuery</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">小作品</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">商务通</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">window</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://elitefan0814.github.io/MyBlog/2020/05/18/浏览器模型/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/MyBlog/2019/02/18/css简单布局/" class="archive-article-date">
-  	<time datetime="2019-02-18T09:18:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-18</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/MyBlog/2020/05/16/meta-viewport/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">meta viewport 详解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/MyBlog/2019/02/18/css简单布局/">简单CSS布局</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">layout</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/MyBlog/2019/02/15/动态rem/" class="archive-article-date">
-  	<time datetime="2019-02-15T11:56:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/MyBlog/2019/02/15/动态rem/">动态rem</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">rem</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">响应式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -316,8 +368,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
