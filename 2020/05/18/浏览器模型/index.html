@@ -9,14 +9,14 @@
   <title>浏览器模型 | 范培超的网络日志</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="window 对象指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。 以下所有对象都为window的子属性navigator 对象包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息 screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。 cook">
-<meta name="keywords" content="window">
+<meta name="keywords" content="cookie,window,navigator,screen">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器模型">
 <meta property="og:url" content="https://elitefan0814.github.io/MyBlog/2020/05/18/浏览器模型/index.html">
 <meta property="og:site_name" content="范培超的网络日志">
 <meta property="og:description" content="window 对象指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。 以下所有对象都为window的子属性navigator 对象包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息 screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。 cook">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-23T02:25:55.794Z">
+<meta property="og:updated_time" content="2020-05-23T06:02:59.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器模型">
 <meta name="twitter:description" content="window 对象指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。 以下所有对象都为window的子属性navigator 对象包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息 screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。 cook">
@@ -172,7 +172,7 @@
         <h3 id="window-对象"><a href="#window-对象" class="headerlink" title="window 对象"></a>window 对象</h3><p>指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。</p>
 <h3 id="以下所有对象都为window的子属性"><a href="#以下所有对象都为window的子属性" class="headerlink" title="以下所有对象都为window的子属性"></a>以下所有对象都为window的子属性</h3><h4 id="navigator-对象"><a href="#navigator-对象" class="headerlink" title="navigator 对象"></a>navigator 对象</h4><p>包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息</p>
 <h4 id="screen-对象"><a href="#screen-对象" class="headerlink" title="screen 对象"></a>screen 对象</h4><p>表示当前窗口所在的屏幕，提供显示设备的信息。</p>
-<h4 id="cookie-对象"><a href="#cookie-对象" class="headerlink" title="cookie 对象"></a>cookie 对象</h4><p>cookie是服务器保存在浏览器的一小段文本信息，浏览器每次向服务器发送请求，就会自动带上cookie信息。<br>一般来讲，单个域名的cookie不应该超过30个，每个cookie大小不超过4kb。</p>
+<h4 id="cookie-对象"><a href="#cookie-对象" class="headerlink" title="cookie 对象"></a>cookie 对象</h4><p>cookie是服务器保存在浏览器的一小段文本信息，浏览器每次向服务器发送请求，就会自动带上cookie信息。<br>一般来讲，单个域名的cookie不应该超过30个，每个cookie大小不超过4kb。<br><a id="more"></a></p>
 <ol>
 <li><p>cookie 结构<br><strong>name value domain path expires/max-age size httpOnly secure sameSite priority</strong>  </p>
 <ul>
@@ -250,7 +250,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">cookie</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">window</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">navigator</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">screen</a>
         		</li>
       		
 		</ul>
@@ -685,6 +697,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">let</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">navigator</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">screen</a>
               </li>
             
             <div class="clearfix"></div>
