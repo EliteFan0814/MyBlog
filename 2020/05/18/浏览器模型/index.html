@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="范培超的网络日志">
 <meta property="og:description" content="window 对象指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。 以下所有对象都为window的子属性navigator 对象包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息 screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。 cook">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-05-22T10:00:35.336Z">
+<meta property="og:updated_time" content="2020-05-23T02:25:55.794Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器模型">
 <meta name="twitter:description" content="window 对象指当前浏览器窗口，也是当前页面的顶层（最高层）对象，所有其他对象都是他的子属性，所有未声明就赋值的变量都自动变成window对象的属性。这是js这门语言的设计失误，但是今天已经无法更改。 以下所有对象都为window的子属性navigator 对象包含浏览器和系统信息的对象，使用这个属性来了解用户的环境信息 screen 对象表示当前窗口所在的屏幕，提供显示设备的信息。 cook">
@@ -179,8 +179,14 @@
 <li><p>domain path：<br>如果一个cookie的domain为 <code>www.fpc.com</code>，path为/love，则这个cookie只有在访问<br><code>www.fpc.com/love</code>时才会有效返回给服务器。</p>
 </li>
 <li><p>expires max-age：<br>expires指定一个到期时间，不是很靠谱，因为浏览器本地时间不可控。<br>max-age指定从现在开始 Cookie 存在的秒数,过了这个时间以后，浏览器就不再保留这个 Cookie，相对靠谱。<br>max-age优先级更高<br>如果二者都没有指定，则这个 Cookie 就是 Session Cookie，即它只在本次对话存在</p>
+</li>
+<li><p>httpOnly secure：<br>HttpOnly属性指定该 Cookie 无法通过 JavaScript 脚本拿到，只有浏览器发出 HTTP 请求时，才会带上该 Cookie<br>secure属性只是一个开关，不需要指定值，表示只有在加密协议 HTTPS 下，才能将这个 Cookie 发送到服务器</p>
+</li>
+<li><p>sameSite：<br>SameSite属性用来限制第三方 Cookie，防止 CSRF 攻击和用户追踪。它有三个值：  </p>
 <ul>
-<li>httpOnly secure：<br>HttpOnly属性指定该 Cookie 无法通过 JavaScript 脚本拿到，只有浏览器发出 HTTP 请求时，才会带上该 Cookie<br>secure属性只是一个开关，不需要指定值，表示只有在加密协议 HTTPS 下，才能将这个 Cookie 发送到服务器</li>
+<li>strict：<br>完全禁止第三方 Cookie，跨站点时，任何情况下都不会发送 Cookie。</li>
+<li>lax：<br>稍稍放宽，大多数情况也是不发送第三方 Cookie，但是导航到目标网址的 Get 请求除外（链接，预加载请求，GET 表单）。</li>
+<li>none：<br>设置为none的时候必须同时设置 secure 属性，不然 none 无效。</li>
 </ul>
 </li>
 </ul>
@@ -194,6 +200,10 @@
 <li>cookie的各种属性</li>
 <li>哪个域名设置的cookie，是一级域名还是二级域名</li>
 </ol>
+</li>
+<li><p>document.cookie 读写当前网页的 cookie</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回除设置了httpOnly的所有 cookie</span></span><br><span class="line"><span class="built_in">document</span>.cookie <span class="comment">// "foo=bar;baz=bar"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 写入一个cookie，一次只能写入一个，必须是key=value的形式，=左右不能有空格</span></span><br><span class="line"><span class="comment">// 写入cookie时，必须对分号、逗号和空格进行转义</span></span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"foo=bar; expires=Fri, 31 Dec 2020 23:59:59 GMT"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置注意事项：</span></span><br><span class="line"><span class="comment">// 1. path为绝对路径，默认当前路径</span></span><br><span class="line"><span class="comment">// 2. domain值必须为当前发送cookie域名的一部分 ，默认为当前的一级域名</span></span><br><span class="line"><span class="comment">// 3. max-age属性的值为秒数。</span></span><br><span class="line"><span class="comment">// 4. expires属性的值为 UTC 格式</span></span><br></pre></td></tr></table></figure>
+<p>cookie 的属性一旦设置完成，就无法读取，删除现存 cookie 的唯一方法是设置expires属性为一个过去的日期</p>
 </li>
 </ol>
 
